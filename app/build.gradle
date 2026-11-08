@@ -43,6 +43,14 @@ android {
         buildConfig true
     }
 
+    // lintVital analiza todo el arbol en cada build release y en maquinas con
+    // poca CPU/RAM (2 cores / 4 GB) hace inviable el build. Se desactiva:
+    // el QA de lint se hace aparte, no en el empaquetado.
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
